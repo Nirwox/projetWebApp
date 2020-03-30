@@ -20,10 +20,11 @@
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
         <!-- JS Custom -->
         <script src="./js/common.js"></script>
+        <script src="./js/class.intervention.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">Support ERP</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,13 +32,10 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Acceuil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-link" href="#">Créer une nouvelle demande d'intervention</a>
                 </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -56,25 +54,7 @@
                     <th scope="col">Etat</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>U00I701</td>
-                    <td>Comment héberger plusieurs sites web sur un même hébergement mutualisé</td>
-                    <td>Assigné</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>U00I908</td>
-                    <td>Comment créer un site web</td>
-                    <td>Terminé</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td>U00I876</td>
-                    <td>J'ai publié mon site mais la page « Félicitations » d'OVH s’affiche toujours</td>
-                    <td>Terminé</td>
-                    </tr>
+                <tbody id="lesLignes">
                 </tbody>
             </table>
         </div>
