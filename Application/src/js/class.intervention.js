@@ -9,4 +9,7 @@ class Intervention {
         this.date = date;
         this.status = status;
     }
+    setId(id) {
+        this.id = id;
+    }
 }

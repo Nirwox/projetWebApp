@@ -18,6 +18,8 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <!-- JS DataTable https://datatables.net -->
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <!-- JS FontAwesome -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
         <!-- JS Custom -->
         <script src="./js/common.js"></script>
         <script src="./js/class.intervention.js"></script>
@@ -35,7 +37,7 @@
                     <a class="nav-link" href="#">Acceuil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Créer une nouvelle demande d'intervention</a>
+                    <a class="nav-link" id="addInter" href="#">Créer une nouvelle demande d'intervention</a>
                 </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -52,11 +54,17 @@
                     <th scope="col">Identifiant Utilisateur</th>
                     <th scope="col">Titre</th>
                     <th scope="col">Etat</th>
+                    <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody id="lesLignes">
                 </tbody>
             </table>
+            <form id="formAdd">
+                <input type="text" id="titre" placeholder="Titre">
+                <textarea id="desc"></textarea>
+                <button id="newInter">Enregistrer</button>
+            </form>
         </div>
     </body>
 </html>
