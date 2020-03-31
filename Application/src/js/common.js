@@ -20,7 +20,12 @@ $(document).ready( function () {
 
     $('#addInter').click(function() {
         $("#formAdd").show();
-        $("#myTable").hide();
+        $("#myTable_wrapper").hide();
+    });
+
+    $('#home').click(function() {
+        $("#formAdd").hide();
+        $("#myTable_wrapper").show();
     });
 
     $('#newInter').click(function() {
@@ -32,7 +37,9 @@ $(document).ready( function () {
         lInter.push(row)
         reloadTable(lInter)
         $("#formAdd").hide();
-        $("#myTable").show();
+        $("#myTable_wrapper").show();
+        var titre = $('#titre').val('');
+        var desc = $('#desc').val('');
     })
 });
 
