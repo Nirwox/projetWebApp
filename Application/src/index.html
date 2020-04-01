@@ -73,13 +73,39 @@
                             </tbody>
                         </table>
                     </div>
-                    <form class="margin30" id="formAdd">
-                        <input type="text" id="titre" placeholder="Titre">
-                        <input type="text" id="titre" placeholder="Nom">
-                        <textarea id="desc"></textarea>
-                        <button type='button' id="newInter">Enregistrer</button>
-                    </form>
-                </div>
+                <form id="formAdd"> 
+                    <div class="form-group">
+                        <label for="inputAddress">Identifiant</label>
+                        <input type="text" class="form-control" id="iduser">
+                      </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Titre</label>
+                        <input type="text" class="form-control" id="titre">
+                      </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Nom</label>
+                        <input type="text" class="form-control" id="nom">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputPassword4">Prénom</label>
+                        <input type="text" class="form-control" id="prénom">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Description du ticket</label>
+                        <textarea class="form-control" id="desc" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                        <label class="form-check-label" for="invalidCheck2">
+                            Accepter les termes et conditions
+                        </label>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Soumettre le ticket</button>
+                  </form>
             </div>
         </div>
 
