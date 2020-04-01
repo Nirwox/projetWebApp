@@ -1,6 +1,10 @@
 body {
     color: #858796;
 }
+.container-fluid {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
 .row {
     width: 100%;
 }
@@ -40,14 +44,10 @@ table.dataTable.no-footer {
     background-image: linear-gradient(180deg,#4e73df 10%,#224abe 100%);
     background-size: cover;
 }
-.sidebar {
-    width: 14rem !important;
-}
 .sidebar-dark .sidebar-brand {
     color: #fff;
 }
 .sidebar {
-    width: 6.5rem;
     min-height: 100vh;
 }
 .sidebar-dark hr.sidebar-divider {
