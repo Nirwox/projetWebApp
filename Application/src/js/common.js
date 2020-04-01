@@ -19,9 +19,10 @@ $(document).ready( function () {
 
     $('#newInter').click(function() {
         var laDate = new Date();
-        var lInter = [];
+
         var titre = $('#titre').val();
         var desc = $('#desc').val();
+
         var dateFormat = laDate.getDate() + '/' + laDate.getMonth() + '/' + laDate.getFullYear();
         var row = new Intervention(idAleatoire(laDate), 'U00I876', 'Louvet', 'Hugo', titre, desc, dateFormat,'Non assigné');
 
@@ -158,13 +159,6 @@ function initData() {
     var firstDate = new Date('2020,3,22');
     var row8 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Que signifie erreur suivante ?', 'Que signifie erreur suivante ?', dateFormat,'Non assigné');
 
-    lesInterv.push(row)
-    lesInterv.push(row2)
-    lesInterv.push(row3)
-    lesInterv.push(row4)
-    lesInterv.push(row5)
-    lesInterv.push(row6)
-    lesInterv.push(row7)
-    lesInterv.push(row8)
+    lesInterv.push(row,row2,row3,row4,row5,row6,row7,row8)
 }
 
