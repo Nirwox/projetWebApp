@@ -1,23 +1,11 @@
+lesInterv = [];
+objectSelected = null;
 $(document).ready( function () {
     $("#formAdd").hide();
 
-    var lesInterv = [];
-    
-    var row = new Intervention(0, 'U00I701', 'Louvet', 'Hugo', 'Comment héberger plusieurs sites web sur un même hébergement mutualisé', 'Comment héberger plusieurs sites web sur un même hébergement mutualisé', new Date(2020,3,30,18,30),'Assigné');
-    var row2 = new Intervention(0, 'U00I908', 'Louvet', 'Hugo', 'Comment créer un site web', 'Comment créer un site web', new Date(2020,3,30,18,00),'Terminé');
-    var row3 = new Intervention(0, 'U00I876', 'Louvet', 'Hugo', "J'ai publié mon site mais la page « Félicitations » d'OVH s’affiche toujours", "J'ai publié mon site mais la page « Félicitations » d'OVH s’affiche toujours", new Date(2020,3,30,20,30),'Terminé');
-    row.setId(idAleatoire(row.date))
-    row2.setId(idAleatoire(row2.date))
-    row3.setId(idAleatoire(row3.date))
-
-    lesInterv.push(row);
-    lesInterv.push(row2);
-    lesInterv.push(row3);
-
+    initData();
     reloadTable(lesInterv);
-
     $('#myTable').DataTable();
-    $("#myTable_wrapper").addClass('margin30')
 
     $('#addInter').click(function() {
         $("#formAdd").show();
@@ -30,23 +18,66 @@ $(document).ready( function () {
     });
 
     $('#newInter').click(function() {
+        var laDate = new Date();
         var lInter = [];
         var titre = $('#titre').val();
         var desc = $('#desc').val();
+        var dateFormat = laDate.getDate() + '/' + laDate.getMonth() + '/' + laDate.getFullYear();
+        var row = new Intervention(idAleatoire(laDate), 'U00I876', 'Louvet', 'Hugo', titre, desc, dateFormat,'Non assigné');
 
-        var row = new Intervention(0, 'U00I876', 'Louvet', 'Hugo', titre, desc, new Date(2020,3,30,23,30),'Non assigné');
-        lInter.push(row)
-        reloadTable(lInter)
+        $('#myTable').DataTable().row.add([
+            row.id,
+            row.userId,
+            row.titre,
+            row.date,
+            row.status,
+            '<i class="fas fa-plus-circle">'
+        ] ).draw( false );
+
         $("#formAdd").hide();
         $("#myTable_wrapper").show();
+
         var titre = $('#titre').val('');
         var desc = $('#desc').val('');
+
     })
+
+    $('#deleteDemande').click(function() {
+        alert(objectSelected.id)
+        var lignes = document.getElementById('lesLignes').childNodes;
+        for(var i=1;i<lignes.length;i++) {
+            //console.log(lignes[i].childNodes)
+            if(lignes[i].childNodes[0].innerHTML == objectSelected.id) {
+                console.log(lignes[i])
+                //document.getElementById('lesLignes').removeChild(lignes[i])
+                $('#myTable').DataTable().row(lignes[i]).remove().draw();
+            }
+        }
+    });
 });
 
 function idAleatoire(date) {
     var str = "TICKET-"+ date.getTime();
     return str;
+}
+
+function viewDetail(idInter) {
+    objectSelected = idInter;
+    lesInterv.forEach(element => {
+        if(element.id == idInter) {
+            objectSelected = element;
+        }
+    });
+    document.getElementById('exampleModalLabel').innerHTML = objectSelected.titre
+    $('#inputId').val(objectSelected.id);
+    $('#inputIdUser').val(objectSelected.userId);
+    $('#inputNom').val(objectSelected.nom);
+    $('#inputPrenom').val(objectSelected.prenom);
+    $('#inputDesc').val(objectSelected.description);
+    $('#inputState').val(objectSelected.status);
+    $('#inputDate').val(objectSelected.date);
+
+    $('#exampleModal').modal('show')
 }
 
 function reloadTable(lesInterv) {
@@ -62,11 +93,25 @@ function reloadTable(lesInterv) {
     
         var newCellTitre = document.createElement('td');
         newCellTitre.innerHTML = oneIntervention.titre;
-    
+
         var newCellDate = document.createElement('td');
-        newCellDate.innerHTML = oneIntervention.status;
+        newCellDate.innerHTML = oneIntervention.date;
+    
+        var newCellstatus = document.createElement('td');
+        newCellstatus.innerHTML = oneIntervention.status;
+        if(oneIntervention.status == 'Terminée') {
+            newCellstatus.classList.add('bg-success')
+            newCellstatus.classList.add('text-white')
+        } else if(oneIntervention.status == 'Assigné') {
+            newCellstatus.classList.add('bg-warning')
+            newCellstatus.classList.add('text-white')
+        } else if(oneIntervention.status == 'Non assigné') {
+            newCellstatus.classList.add('bg-danger')
+            newCellstatus.classList.add('text-white')
+        }
 
         var newCellAction = document.createElement('td');
+        newCellAction.setAttribute('onclick','viewDetail("'+oneIntervention.id+'")')
         newCellAction.classList.add('text-center')
         newCellAction.innerHTML = "<i class='fas fa-plus-circle'>";
     
@@ -74,8 +119,52 @@ function reloadTable(lesInterv) {
         newLigne.appendChild(newCellPrenom);
         newLigne.appendChild(newCellTitre);
         newLigne.appendChild(newCellDate);
+        newLigne.appendChild(newCellstatus);
         newLigne.appendChild(newCellAction);
     
         lesLignes.appendChild(newLigne)
     });
 }
+
+function initData() {
+    var firstDate = new Date('2020,3,30');
+    var dateFormat = firstDate.getDate() + '/' + firstDate.getMonth() + '/' + firstDate.getFullYear();
+    var row = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Comment héberger plusieurs sites web sur un même hébergement mutualisé ?', 'Comment héberger plusieurs sites web sur un même hébergement mutualisé ?', dateFormat,'Non assigné');
+    
+    var firstDate = new Date('2020,3,31');
+    var dateFormat = firstDate.getDate() + '/' + firstDate.getMonth() + '/' + firstDate.getFullYear();
+    var row2 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Comment créer un site web ?', 'Comment créer un site web ?',dateFormat,'Assigné');
+
+    var firstDate = new Date('2020,4,1');
+    var dateFormat = firstDate.getDate() + '/' + firstDate.getMonth() + '/' + firstDate.getFullYear();
+    var row3 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Comment se connecter sur mon hébergement en FTP ?', 'Comment se connecter sur mon hébergement en FTP ?', dateFormat,'Non assigné');
+
+    var firstDate = new Date('2020,3,23');
+    var dateFormat = firstDate.getDate() + '/' + firstDate.getMonth() + '/' + firstDate.getFullYear();
+    var row4 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Comment activer hébergement gratuit Start 10M ?', 'Comment activer hébergement gratuit Start 10M ?', dateFormat,'Terminée');
+
+    var firstDate = new Date('2020,3,5');
+    var dateFormat = firstDate.getDate() + '/' + firstDate.getMonth() + '/' + firstDate.getFullYear();
+    var row5 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Je ne trouve pas les identifiants de ma base de données', 'Je ne trouve pas les identifiants de ma base de données', dateFormat,'Assigné');
+
+    var firstDate = new Date('2020,3,7');
+    var dateFormat = firstDate.getDate() + '/' + firstDate.getMonth() + '/' + firstDate.getFullYear();
+    var row6 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Que faire en cas de problème FTP ?', 'Que faire en cas de problème FTP ?', dateFormat,'Assigné');
+
+    var firstDate = new Date('2020,3,19');
+    var dateFormat = firstDate.getDate() + '/' + firstDate.getMonth() + '/' + firstDate.getFullYear();
+    var row7 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Comment voir les statistiques de mon site?', 'Comment voir les statistiques de mon site?', dateFormat,'Non assigné');
+
+    var firstDate = new Date('2020,3,22');
+    var row8 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Que signifie erreur suivante ?', 'Que signifie erreur suivante ?', dateFormat,'Non assigné');
+
+    lesInterv.push(row)
+    lesInterv.push(row2)
+    lesInterv.push(row3)
+    lesInterv.push(row4)
+    lesInterv.push(row5)
+    lesInterv.push(row6)
+    lesInterv.push(row7)
+    lesInterv.push(row8)
+}
+

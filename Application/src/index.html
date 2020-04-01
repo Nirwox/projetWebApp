@@ -26,7 +26,7 @@
     </head>
     <body>
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2 col-sm-12 col-12">
                 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                         <div class="sidebar-brand-icon rotate-n-15">
@@ -37,37 +37,40 @@
                     <hr class="sidebar-divider my-0">
                     <div class="sidebar-heading">Outils</div>
                     <li class="nav-item">
-                        <a class="nav-link" id="home">
+                        <a href="#" class="nav-link" id="home">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Acceuil</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="addInter">
+                        <a href="#" class="nav-link" id="addInter">
                         <i class="fas fa-fw fa-plus"></i>
                         <span>Créer une intervention</span></a>
                     </li>
                     <hr class="sidebar-divider"> 
                     <li class="nav-item">
-                        <a class="nav-link" id="addInter">
+                        <a href="#" class="nav-link" id="">
                         <i class="fas fa-fw fa-sign-out-alt"></i>
                         <span>Déconnexion</span></a>
                     </li>
                 </ul>
             </div>
-            <div class="col-md-10">
-                <table class="table" id="myTable">
-                    <thead>
-                        <tr>
-                            <th scope="col">Numéro de l'incident</th>
-                            <th scope="col">ID Utilisateur</th>
-                            <th scope="col">Titre</th>
-                            <th scope="col">Etat</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="lesLignes">
-                    </tbody>
-                </table>
+            <div class="col-md-10 mt-4 col-sm-12 col-12">
+                <div class="table-responsive-sm">
+                    <table class="table" id="myTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Numéro de l'incident</th>
+                                <th scope="col">ID Utilisateur</th>
+                                <th scope="col">Titre</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Etat</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lesLignes">
+                        </tbody>
+                    </table>
+                </div>
                 <form id="formAdd"> 
                     <div class="form-group">
                         <label for="inputAddress">Identifiant</label>
@@ -101,6 +104,68 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Soumettre le ticket</button>
                   </form>
+            </div>
+        </div>
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputAddress">ID Demande </label>
+                                    <input type="text" disabled class="form-control" id="inputId">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputAddress">ID User </label>
+                                    <input type="text" disabled class="form-control" id="inputIdUser">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Nom</label>
+                                    <input disabled type="text" class="form-control" id="inputNom">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Prenom</label>
+                                    <input disabled type="text" class="form-control" id="inputPrenom">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail4">Description</label>
+                                <textarea disabled class="form-control" id="inputDesc"></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">Date de création</label>
+                                    <input disabled type="text" class="form-control" id="inputDate">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputPassword4">Status</label>
+                                    <select class="form-control" id="inputState">
+                                        <option value="Terminée">Terminée</option>
+                                        <option value="Assigné">Assigné</option>
+                                        <option value="Non assigné">Non assigné</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="deleteDemande" class="btn btn-danger">Supprimer le ticket</button>
+                        <button type="button" class="btn btn-primary">Modifier</button>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
