@@ -1,6 +1,9 @@
 body {
     color: #858796;
 }
+.row {
+    width: 100%;
+}
 #myTable {
     clear: both;
     margin-top: 6px !important;
@@ -85,7 +88,4 @@ table.dataTable.no-footer {
 }
 .sidebar-dark .nav-item .nav-link i {
     color: rgba(255,255,255,.3);
-}
-.margin30 {
-    margin: 30px;
 }
