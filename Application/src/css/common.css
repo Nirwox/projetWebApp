@@ -1,0 +1,91 @@
+body {
+    color: #858796;
+}
+#myTable {
+    clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+    border-collapse: separate !important;
+    border-spacing: 0;
+    color: #858796;
+}
+td, th {
+    border: 1px solid #e3e6f0 !important;
+        border-bottom-width: 1px;
+        border-left-width: 1px;
+}
+table.dataTable.no-footer {
+    border-bottom: none;
+}
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
+    color: #858796;
+}
+.sidebar .sidebar-brand {
+    height: 4.375rem;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .05rem;
+    z-index: 1;
+}
+.bg-gradient-primary {
+    background-color: #4e73df;
+    background-image: linear-gradient(180deg,#4e73df 10%,#224abe 100%);
+    background-size: cover;
+}
+.sidebar {
+    width: 14rem !important;
+}
+.sidebar-dark .sidebar-brand {
+    color: #fff;
+}
+.sidebar {
+    width: 6.5rem;
+    min-height: 100vh;
+}
+.sidebar-dark hr.sidebar-divider {
+    border-top: 1px solid rgba(255,255,255,.15);
+}
+.sidebar hr.sidebar-divider {
+    margin: 0 1rem 1rem !important;
+}
+.sidebar .nav-item .nav-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    width: 14rem;
+}
+.sidebar-dark .nav-item .nav-link {
+    color: rgba(255,255,255,.8);
+}
+.sidebar-dark .sidebar-heading {
+    color: rgba(255,255,255,.4);
+}
+.sidebar .sidebar-heading {
+    text-align: center;
+    padding: 0 1rem;
+    font-weight: 800;
+    font-size: .65rem;
+}
+.sidebar .sidebar-heading {
+    text-align: left;
+}
+.sidebar .nav-item .nav-link span {
+    font-size: .85rem;
+    display: inline;
+}
+.sidebar .nav-item .nav-link i {
+    font-size: .85rem;
+    margin-right: .25rem;
+}
+.sidebar-dark .nav-item .nav-link i {
+    color: rgba(255,255,255,.3);
+}
+.margin30 {
+    margin: 30px;
+}

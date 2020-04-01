@@ -17,6 +17,7 @@ $(document).ready( function () {
     reloadTable(lesInterv);
 
     $('#myTable').DataTable();
+    $("#myTable_wrapper").addClass('margin30')
 
     $('#addInter').click(function() {
         $("#formAdd").show();
