@@ -240,7 +240,7 @@ function initData() {
 
     var firstDate = new Date('2020,4,1');
     var dateFormat = firstDate.getDate() + '/' + firstDate.getMonth() + '/' + firstDate.getFullYear();
-    var row3 = new Intervention(idAleatoire(firstDate), 'U00I784', 'Lucas', 'Lewis', 'Impossible d\'actualiser les données clients', 'Alios autem dicere aiunt multo etiam inhumanius (quem locum breviter paulo ante perstrinxi) praesidii adiumentique causa, non benevolentiae neque caritatis, amicitias esse expetendas; itaque, ut quisque minimum firmitatis haberet minimumque virium, ita amicitias appetere maxime; ex eo fieri ut mulierculae magis amicitiarum praesidia quaerant quam viri et inopes quam opulenti et calamitosi quam ii qui putentur beati.', dateFormat,'Non assigné');
+    var row3 = new Intervention(idAleatoire(firstDate), 'U00I784', 'Lucas', 'Lewis', 'Impossible d\'actualiser les données clients', 'Alios autem dicere aiunt multo etiam inhumanius (quem locum breviter paulo ante perstrinxi) praesidii adiumentique causa, non benevolentiae neque caritatis, amicitias esse expetendas; itaque, ut quisque minimum firmitatis haberet minimumque virium, ita amicitias appetere maxime; ex eo fieri ut mulierculae magis amicitiarum praesidia quaerant quam viri et inopes quam opulenti et calamitosi quam ii qui putentur beati.', dateFormat,'Terminée');
 
     lesInterv.push(row,row2,row3)
 }
