@@ -60,8 +60,18 @@ $(document).ready( function () {
         var prenom = $('#prenom').val();
         var nom = $('#nom').val();
 
+        var idUser = 'U00I';
+        var numberAleaoire  = getRandomInt(1000);
+        if(numberAleaoire.toString().length == 1) {
+            idUser += '00'+numberAleaoire;
+        } else if(numberAleaoire.toString().length == 2) {
+            idUser += '0'+numberAleaoire;
+        } else {
+            idUser += numberAleaoire;
+        }
+
         var dateFormat = laDate.getDate() + '/' + laDate.getMonth() + '/' + laDate.getFullYear();
-        var row = new Intervention(idAleatoire(laDate), 'U00I876', nom, prenom, titre, desc, dateFormat,'Non assigné');
+        var row = new Intervention(idAleatoire(laDate), idUser, nom, prenom, titre, desc, dateFormat,'Non assigné');
         lesInterv.push(row)
 
         $('#myTable').DataTable().row.add([
@@ -101,7 +111,6 @@ $(document).ready( function () {
     })
 
     $('#deleteDemande').click(function() {
-        alert(objectSelected.id)
         var lignes = document.getElementById('lesLignes').childNodes;
         for(var i=1;i<lignes.length;i++) {
             //console.log(lignes[i].childNodes)
@@ -219,5 +228,8 @@ function initData() {
     var row8 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Que signifie erreur suivante ?', 'Que signifie erreur suivante ?', dateFormat,'Non assigné');
 
     lesInterv.push(row,row2,row3,row4,row5,row6,row7,row8)
+}
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
 }
 
