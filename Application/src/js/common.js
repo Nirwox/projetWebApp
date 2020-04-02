@@ -232,36 +232,17 @@ function reloadTable(lesInterv) {
 function initData() {
     var firstDate = new Date('2020,3,30');
     var dateFormat = firstDate.getDate() + '/' + firstDate.getMonth() + '/' + firstDate.getFullYear();
-    var row = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Comment héberger plusieurs sites web sur un même hébergement mutualisé ?', 'Comment héberger plusieurs sites web sur un même hébergement mutualisé ?', dateFormat,'Non assigné');
+    var row = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Bug lors de l\'édition d\'une facture', 'Alios autem dicere aiunt multo etiam inhumanius (quem locum breviter paulo ante perstrinxi) praesidii adiumentique causa, non benevolentiae neque caritatis, amicitias esse expetendas; itaque, ut quisque minimum firmitatis haberet minimumque virium, ita amicitias appetere maxime; ex eo fieri ut mulierculae magis amicitiarum praesidia quaerant quam viri et inopes quam opulenti et calamitosi quam ii qui putentur beati.', dateFormat,'Non assigné');
     
     var firstDate = new Date('2020,3,31');
     var dateFormat = firstDate.getDate() + '/' + firstDate.getMonth() + '/' + firstDate.getFullYear();
-    var row2 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Comment créer un site web ?', 'Comment créer un site web ?',dateFormat,'Assigné');
+    var row2 = new Intervention(idAleatoire(firstDate), 'U00I057', 'Canario', 'Christopher', 'Message erreur de réseaux', 'Alios autem dicere aiunt multo etiam inhumanius (quem locum breviter paulo ante perstrinxi) praesidii adiumentique causa, non benevolentiae neque caritatis, amicitias esse expetendas; itaque, ut quisque minimum firmitatis haberet minimumque virium, ita amicitias appetere maxime; ex eo fieri ut mulierculae magis amicitiarum praesidia quaerant quam viri et inopes quam opulenti et calamitosi quam ii qui putentur beati.',dateFormat,'Assigné');
 
     var firstDate = new Date('2020,4,1');
     var dateFormat = firstDate.getDate() + '/' + firstDate.getMonth() + '/' + firstDate.getFullYear();
-    var row3 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Comment se connecter sur mon hébergement en FTP ?', 'Comment se connecter sur mon hébergement en FTP ?', dateFormat,'Non assigné');
+    var row3 = new Intervention(idAleatoire(firstDate), 'U00I784', 'Lucas', 'Lewis', 'Impossible d\'actualiser les données clients', 'Alios autem dicere aiunt multo etiam inhumanius (quem locum breviter paulo ante perstrinxi) praesidii adiumentique causa, non benevolentiae neque caritatis, amicitias esse expetendas; itaque, ut quisque minimum firmitatis haberet minimumque virium, ita amicitias appetere maxime; ex eo fieri ut mulierculae magis amicitiarum praesidia quaerant quam viri et inopes quam opulenti et calamitosi quam ii qui putentur beati.', dateFormat,'Non assigné');
 
-    var firstDate = new Date('2020,3,23');
-    var dateFormat = firstDate.getDate() + '/' + firstDate.getMonth() + '/' + firstDate.getFullYear();
-    var row4 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Comment activer hébergement gratuit Start 10M ?', 'Comment activer hébergement gratuit Start 10M ?', dateFormat,'Terminée');
-
-    var firstDate = new Date('2020,3,5');
-    var dateFormat = firstDate.getDate() + '/' + firstDate.getMonth() + '/' + firstDate.getFullYear();
-    var row5 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Je ne trouve pas les identifiants de ma base de données', 'Je ne trouve pas les identifiants de ma base de données', dateFormat,'Assigné');
-
-    var firstDate = new Date('2020,3,7');
-    var dateFormat = firstDate.getDate() + '/' + firstDate.getMonth() + '/' + firstDate.getFullYear();
-    var row6 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Que faire en cas de problème FTP ?', 'Que faire en cas de problème FTP ?', dateFormat,'Assigné');
-
-    var firstDate = new Date('2020,3,19');
-    var dateFormat = firstDate.getDate() + '/' + firstDate.getMonth() + '/' + firstDate.getFullYear();
-    var row7 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Comment voir les statistiques de mon site?', 'Comment voir les statistiques de mon site?', dateFormat,'Non assigné');
-
-    var firstDate = new Date('2020,3,22');
-    var row8 = new Intervention(idAleatoire(firstDate), 'U00I876', 'Louvet', 'Hugo', 'Que signifie erreur suivante ?', 'Que signifie erreur suivante ?', dateFormat,'Non assigné');
-
-    lesInterv.push(row,row2,row3,row4,row5,row6,row7,row8)
+    lesInterv.push(row,row2,row3)
 }
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
