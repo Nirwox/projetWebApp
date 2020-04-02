@@ -22,9 +22,12 @@ $(document).ready( function () {
 
         var titre = $('#titre').val();
         var desc = $('#desc').val();
+        var prenom = $('#prenom').val();
+        var nom = $('#nom').val();
 
         var dateFormat = laDate.getDate() + '/' + laDate.getMonth() + '/' + laDate.getFullYear();
-        var row = new Intervention(idAleatoire(laDate), 'U00I876', 'Louvet', 'Hugo', titre, desc, dateFormat,'Non assigné');
+        var row = new Intervention(idAleatoire(laDate), 'U00I876', nom, prenom, titre, desc, dateFormat,'Non assigné');
+        lesInterv.push(row)
 
         $('#myTable').DataTable().row.add([
             row.id,
@@ -33,13 +36,32 @@ $(document).ready( function () {
             row.date,
             row.status,
             '<i class="fas fa-plus-circle">'
-        ] ).draw( false );
+        ] ).node().id = row.id;
+        $('#myTable').DataTable().draw( false );
 
         $("#formAdd").hide();
         $("#myTable_wrapper").show();
 
+        var laLigne = document.getElementById(row.id);
+        var lesCellules = laLigne.childNodes;
+        if(lesCellules[4].innerHTML == 'Terminée') {
+            lesCellules[4].classList.add('bg-success')
+            lesCellules[4].classList.add('text-white')
+        } else if(lesCellules[4].innerHTML == 'Assigné') {
+            lesCellules[4].classList.add('bg-warning')
+            lesCellules[4].classList.add('text-white')
+        } else if(lesCellules[4].innerHTML == 'Non assigné') {
+            lesCellules[4].classList.add('bg-danger')
+            lesCellules[4].classList.add('text-white')
+        }
+
+        lesCellules[5].classList.add('text-center')
+        lesCellules[5].setAttribute('onclick','viewDetail("'+row.id+'")')
+
         var titre = $('#titre').val('');
         var desc = $('#desc').val('');
+        var prenom = $('#prenom').val('');
+        var nom = $('#nom').val('');
 
     })
 
@@ -74,6 +96,7 @@ function viewDetail(idInter) {
     $('#inputIdUser').val(objectSelected.userId);
     $('#inputNom').val(objectSelected.nom);
     $('#inputPrenom').val(objectSelected.prenom);
+    $('#inputTitre').val(objectSelected.titre);
     $('#inputDesc').val(objectSelected.description);
     $('#inputState').val(objectSelected.status);
     $('#inputDate').val(objectSelected.date);
@@ -85,6 +108,7 @@ function reloadTable(lesInterv) {
     var lesLignes = document.getElementById('lesLignes');
     lesInterv.forEach(oneIntervention => {
         var newLigne = document.createElement('tr');
+        newLigne.setAttribute('id',oneIntervention.id)
 
         var newCellNom = document.createElement('td');
         newCellNom.innerHTML = oneIntervention.id;
