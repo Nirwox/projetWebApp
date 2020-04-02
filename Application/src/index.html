@@ -9,18 +9,24 @@
         <!-- CSS DataTable https://datatables.net -->
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
         <!-- CSS Custom -->
+        <link rel="stylesheet" href="./css/jquery.toast.min.css">       
+        <!-- CSS Custom -->
         <link rel="stylesheet" href="./css/common.css">
 
         <!-- JS Jquery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <!-- JS Boostrap https://getbootstrap.com -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <!-- JS DataTable https://datatables.net -->
+        <script src="./js/jquery.toast.min.js"></script>
         <!-- JS DataTable https://datatables.net -->
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
         <!-- JS FontAwesome -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+        <!-- JS Custom -->
+        <script src="./js/common.js"></script>
+        <script src="./js/class.intervention.js"></script>
 
     </head>
     <body>
@@ -89,14 +95,6 @@
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Description du ticket</label>
                         <textarea class="form-control" id="desc" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                        <label class="form-check-label" for="invalidCheck2">
-                            Accepter les termes et conditions
-                        </label>
-                      </div>
                     </div>
                     <button type="submit" id="newInter" class="btn btn-primary">Soumettre le ticket</button>
                   </form>
@@ -169,7 +167,4 @@
             </div>
         </div>
     </body>
-    <!-- JS Custom -->
-    <script src="./js/common.js"></script>
-    <script src="./js/class.intervention.js"></script>
 </html>

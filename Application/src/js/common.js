@@ -50,6 +50,16 @@ $(document).ready( function () {
             lesCellules[4].classList.add('bg-danger')
             lesCellules[4].classList.add('text-white')
         }
+
+        $.toast({
+            heading: 'Succès',
+            text: 'Les modifications ont bien été prises en compte',
+            showHideTransition: 'slide',
+            position: 'top-right',
+            icon: 'success'
+        })
+
+        $('#exampleModal').modal('hide');
     })
 
     $('#newInter').click(function() {
@@ -87,6 +97,16 @@ $(document).ready( function () {
         $("#formAdd").hide();
         $("#myTable_wrapper").show();
 
+        $.toast({
+            heading: 'Succès',
+            text: 'Votre ticket à bien été crée',
+            showHideTransition: 'slide',
+            position: 'top-right',
+            icon: 'success'
+        })
+
+        
+
         var laLigne = document.getElementById(row.id);
         var lesCellules = laLigne.childNodes;
         if(lesCellules[4].innerHTML == 'Terminée') {
@@ -118,6 +138,14 @@ $(document).ready( function () {
                 console.log(lignes[i])
                 //document.getElementById('lesLignes').removeChild(lignes[i])
                 $('#myTable').DataTable().row(lignes[i]).remove().draw();
+                $.toast({
+                    heading: 'Succès',
+                    text: 'Le ticket a bien été supprimé',
+                    showHideTransition: 'slide',
+                    position: 'top-right',
+                    icon: 'success'
+                })
+                $('#exampleModal').modal('hide');
             }
         }
     });
