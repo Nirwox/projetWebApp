@@ -17,6 +17,41 @@ $(document).ready( function () {
         $("#myTable_wrapper").show();
     });
 
+    $('#updateDemande').click(function() {
+        var laRow = document.getElementById(objectSelected.id)
+
+        objectSelected.status = $('#inputState').val();
+        objectSelected.titre = $('#inputTitre').val();
+        objectSelected.description = $('#inputDesc').val();
+
+        lesCellules = laRow.childNodes;
+        console.log(lesCellules)
+
+
+        $('#myTable').DataTable().row(laRow).data([
+            objectSelected.id,
+            objectSelected.userId,
+            objectSelected.titre,
+            objectSelected.date,
+            objectSelected.status,
+            '<i class="fas fa-plus-circle">'
+        ]).node().id = objectSelected.id;
+        $('#myTable').DataTable().draw( false );
+
+        lesCellules[4].className = ''
+
+        if(objectSelected.status == 'Terminée') {
+            lesCellules[4].classList.add('bg-success')
+            lesCellules[4].classList.add('text-white')
+        } else if(objectSelected.status == 'Assigné') {
+            lesCellules[4].classList.add('bg-warning')
+            lesCellules[4].classList.add('text-white')
+        } else if(objectSelected.status == 'Non assigné') {
+            lesCellules[4].classList.add('bg-danger')
+            lesCellules[4].classList.add('text-white')
+        }
+    })
+
     $('#newInter').click(function() {
         var laDate = new Date();
 
