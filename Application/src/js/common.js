@@ -130,6 +130,12 @@ $(document).ready( function () {
 
     })
 
+    $("#desc").keypress(function() {
+        var nbCarac = $(this).val().length;
+        var dif = 500 - nbCarac;
+        document.getElementById('textArea').innerHTML =  'Caractères restant : '+ dif +'/500';
+    });
+
     $('#deleteDemande').click(function() {
         var lignes = document.getElementById('lesLignes').childNodes;
         for(var i=1;i<lignes.length;i++) {
